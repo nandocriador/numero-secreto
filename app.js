@@ -23,8 +23,18 @@ function exibirMensagemInicial() {
 
 exibirMensagemInicial()
 
+function mensagemCampoVazio() {
+    exibirTextoNatela("p", `Escolha um número entre 1 e ${numeroLimite}`);
+}
+
 function verificarChute() {
     let chute = document.querySelector("input").value;
+
+    if (chute == "") {
+        exibirTextoNatela("p", `Digite um número`);
+        setTimeout(mensagemCampoVazio, 3000);
+        return;
+    }
     
     if (chute == numeroSecreto) {
         exibirTextoNatela("h1", "Acertou!");
